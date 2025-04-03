@@ -220,7 +220,7 @@ export const dummyInterviews: Interview[] = [
     id: "2",
     userId: "user1",
     role: "Full Stack Developer",
-    type: "Mixed",
+    type: "mixed",
     techstack: ["Node.js", "Express", "MongoDB", "React"],
     level: "Senior",
     questions: ["What is Node.js?"],
