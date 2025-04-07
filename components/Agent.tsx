@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import {useState, useEffect} from "react";
-import {useRouter} from "next/navigation";
-import {cn} from "@/lib/utils";
-import {vapi} from "@/lib/vapi.sdk";
-import {interviewer} from "@/constants";
-import {createFeedback} from "@/lib/actions/general.action";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+import { cn } from "@/lib/utils";
+import { vapi } from "@/lib/vapi.sdk";
+import { interviewer } from "@/constants";
+import { createFeedback } from "@/lib/actions/general.action";
 
 enum CallStatus {
     INACTIVE = "INACTIVE",
@@ -45,7 +46,7 @@ const Agent = ({
 
         const onMessage = (message: Message) => {
             if (message.type === "transcript" && message.transcriptType === "final") {
-                const newMessage = {role: message.role, content: message.transcript};
+                const newMessage = { role: message.role, content: message.transcript };
                 setMessages((prev) => [...prev, newMessage]);
             }
         };
@@ -89,7 +90,7 @@ const Agent = ({
         const handleGenerateFeedback = async (messages: SavedMessage[]) => {
             console.log("handleGenerateFeedback");
 
-            const {success, feedbackId: id} = await createFeedback({
+            const { success, feedbackId: id } = await createFeedback({
                 interviewId: interviewId!,
                 userId: userId!,
                 transcript: messages,
@@ -157,7 +158,7 @@ const Agent = ({
                             height={54}
                             className="object-cover"
                         />
-                        {isSpeaking && <span className="animate-speak"/>}
+                        {isSpeaking && <span className="animate-speak" />}
                     </div>
                     <h3>AI Interviewer</h3>
                 </div>

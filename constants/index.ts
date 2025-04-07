@@ -100,7 +100,7 @@ export const mappings = {
 export const interviewer: CreateAssistantDTO = {
   name: "Interviewer",
   firstMessage:
-    "Hello! Thank you for taking the time to speak with me today. I'm excited to learn more about you and your experience.",
+      "Hello! Thank you for taking the time to speak with me today. I'm excited to learn more about you and your experience.",
   transcriber: {
     provider: "deepgram",
     model: "nova-2",
@@ -220,7 +220,7 @@ export const dummyInterviews: Interview[] = [
     id: "2",
     userId: "user1",
     role: "Full Stack Developer",
-    type: "mixed",
+    type: "Mixed",
     techstack: ["Node.js", "Express", "MongoDB", "React"],
     level: "Senior",
     questions: ["What is Node.js?"],

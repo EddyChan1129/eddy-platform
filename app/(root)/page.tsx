@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import InterviewCard from "@/components/InterviewCard";
 
-import {getCurrentUser} from "@/lib/actions/auth.action";
+import { getCurrentUser } from "@/lib/actions/auth.action";
 import {
     getInterviewsByUserId,
     getLatestInterviews,
@@ -15,7 +15,7 @@ async function Home() {
 
     const [userInterviews, allInterview] = await Promise.all([
         getInterviewsByUserId(user?.id!),
-        getLatestInterviews({userId: user?.id!}),
+        getLatestInterviews({ userId: user?.id! }),
     ]);
 
     const hasPastInterviews = userInterviews?.length! > 0;
@@ -74,12 +74,12 @@ async function Home() {
                         allInterview?.map((interview) => (
                             <InterviewCard
                                 key={interview.id}
-                                // userId={user?.id}
-                                // interviewId={interview.id}
-                                // role={interview.role}
-                                // type={interview.type}
-                                // techstack={interview.techstack}
-                                // createdAt={interview.createdAt}
+                                userId={user?.id}
+                                interviewId={interview.id}
+                                role={interview.role}
+                                type={interview.type}
+                                techstack={interview.techstack}
+                                createdAt={interview.createdAt}
                             />
                         ))
                     ) : (
